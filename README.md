@@ -1,6 +1,6 @@
-# Following are the details which are used inside this project 
+# Project details used inside to build with
 Kotlin,
-MVVM,
+MVVM, Clean architecture,
 Navigation Component,
 Retrofit,
 Coroutines,
