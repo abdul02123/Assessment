@@ -12,9 +12,8 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class NetworkModule {
+object NetworkModule {
 
-    @Singleton
     @Provides
     fun providesRetrofit(): Retrofit{
         return Retrofit.Builder()
@@ -23,7 +22,6 @@ class NetworkModule {
             .build()
     }
 
-    @Singleton
     @Provides
     fun providesArticleApi(retrofit: Retrofit): ArticleApi{
         return retrofit.create(ArticleApi::class.java)
