@@ -2,6 +2,7 @@
 Kotlin,
 MVVM, Clean architecture,
 Navigation Component,
+Dependency inject Hilt,
 Retrofit,
 Coroutines,
 Testing,
