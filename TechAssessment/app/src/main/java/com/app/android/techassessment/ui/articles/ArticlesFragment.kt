@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.app.android.techassessment.R
 import com.app.android.techassessment.databinding.FragmentArticlesBinding
 import com.app.android.techassessment.model.Result
+import com.app.android.techassessment.utils.CountingIdlingResourceSingleton
 import com.app.android.techassessment.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -44,6 +45,8 @@ class ArticlesFragment : Fragment() {
         super.onResume()
         if (!isArticleCalled){
             isArticleCalled = true
+            // for espresso
+            CountingIdlingResourceSingleton.increment()
             articleViewModel.getAllArticles()
         }
     }
@@ -71,6 +74,8 @@ class ArticlesFragment : Fragment() {
     private fun populateArticles(articles: List<Result>){
         adapter = ArticleAdapter(articles, :: articleClicked)
         binding.recyclerView.adapter = adapter
+        // for espresso
+        CountingIdlingResourceSingleton.decrement()
     }
 
     private fun articleClicked(article: Result){
