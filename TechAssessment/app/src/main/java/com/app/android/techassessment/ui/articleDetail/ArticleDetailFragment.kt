@@ -32,4 +32,9 @@ class ArticleDetailFragment : Fragment() {
         binding.tvDetail.text = articleDetails.abstract
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
